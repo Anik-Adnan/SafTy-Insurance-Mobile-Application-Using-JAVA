@@ -31,7 +31,6 @@ public class MessageBroadcast extends BroadcastReceiver {
     private static final long TIME_WINDOW_MS = 1000;
     private final Runnable resetCounterRunnable = () -> pressCount = 0;
     SharedPreferences sharedPreferences;
-    private MediaPlayer mediaPlayer;
 
 
     private MessageBroadcast() {
@@ -59,8 +58,6 @@ public class MessageBroadcast extends BroadcastReceiver {
                 sendMessageToFriend(savedPhoneNumber1,savedSmsContent);
                 sendMessageToFriend(savedPhoneNumber2,savedSmsContent);
                 sendMessageToFriend(savedPhoneNumber3,savedSmsContent);
-                // Play the custom ringtone
-                playCustomRingtone(R.raw.burglur_ringtone_alarm); // Replace with your custom ringtone resource
 
                 pressCount=0;
 
@@ -82,29 +79,6 @@ public class MessageBroadcast extends BroadcastReceiver {
             Toast toast = Toast.makeText(context,"Permission Not Allowed",Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
-        }
-    }
-    private void playCustomRingtone(int audioResource) {
-        mediaPlayer = MediaPlayer.create(context, audioResource);
-
-        if (mediaPlayer != null) {
-            mediaPlayer.start();
-
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    // Ringtone has finished playing
-                    stopCustomRingtone();
-                }
-            });
-        }
-    }
-
-    private void stopCustomRingtone() {
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
         }
     }
 
