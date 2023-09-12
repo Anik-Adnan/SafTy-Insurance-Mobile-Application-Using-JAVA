@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Safety Insurance</string>
+    <string name="terms_and_conditions">"\t\t\t\t\t\t\t\t"
+                           Safety Insurance App"\n"
+       "\t\t\t\t\t\t\t\t"Terms and Conditions"\n\n"
+
+Welcome to the Safety Insurance App ("the App"), provided by [Team17]. By using our App, you agree to the following terms and conditions.
+Please read them carefully."\n\n"
+
+1. App Description"\n\t"
+   The Safety Insurance App is designed to enhance personal safety by allowing users to send their current location to a designated phone number in an emergency. This can be triggered by pressing the power button three times in quick succession or manually through the App."\n\n\n"
+
+2. User Responsibilities"\n"
+   By using the App, you acknowledge and agree that:"\n\t"
+   - You are responsible for ensuring the accuracy of the designated emergency phone number."\n\t"
+   - You will use the App only in genuine emergency situations or as intended."\n\t"
+   - You will not misuse the App to cause unnecessary panic or disruption."\n\n\n"
+
+3. Location Services"\n\t"
+   The App utilizes location services on your device to determine your current location. You understand and consent to the use of your location data for the purpose of sending emergency alerts."\n\n\n"
+
+4. Limitations and Disclaimers"\n"
+   - The App relies on the availability of GPS and network signals, and its accuracy may vary based on the device and environmental conditions."\n\t"
+   - We cannot guarantee that emergency alerts will be received or acted upon by the designated phone number or emergency services."\n\t"
+   - The App should not be solely relied upon for personal safety. You should always exercise caution and follow appropriate safety measures."\n\n\n"
+
+5. Privacy and Data Usage"\n\t"
+   We take your privacy seriously. Your location data will be used only for the purpose of sending emergency alerts. Please review our Privacy Policy for more information on data collection, usage, and sharing."\n\n\n"
+
+6. Termination of Service"\n\t"
+   We reserve the right to suspend or terminate your access to the App at any time and for any reason, including technical issues, misuse, or violation of these terms."\n\n\n"
+
+7. Indemnity"\n\t"
+   You agree to indemnify and hold [ME], its affiliates, and employees harmless from any claims, losses, or liabilities arising out of your use of the App."\n\n\n"
+
+8. Changes to Terms"\n\t"
+   We may update these terms and conditions from time to time. You will be notified of significant changes. Continued use of the App after changes constitutes acceptance."\n\n\n"
+
+9. Governing Law"\n\t"
+   These terms are governed by the laws of [Your Jurisdiction]. Any disputes shall be subject to the exclusive jurisdiction of the courts in [Your Jurisdiction]."\n\n\n"
+
+By using the Safety Insurance App, you acknowledge that you have read, understood, and agreed to these terms."\n\n\n"
+
+Last updated: Date: 23 August, 2023"\n\n"
+For any questions or concerns, please contact us at Email: anikadnanict17@gmail.com
+
+</string>
+</resources>
