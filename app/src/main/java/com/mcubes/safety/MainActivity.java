@@ -1,6 +1,5 @@
 package com.mcubes.safety;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.Context;
@@ -25,7 +24,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -41,10 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText phoneNumberEditText_1,phoneNumberEditText_2,phoneNumberEditText_3,smsContentEditText;
     FusedLocationProviderClient fusedLocationProviderClient;
-    private final static int REQUEST_CODE = 100;
+    private final static int LOCATION_PERMISSION_REQUEST_CODE = 100;
+    private static final int SMS_PERMISSION_REQUEST_CODE = 1;
+
     Button saveButton,getlocationButton,sendSMSButton;
 
     SharedPreferences sharedPreferences;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -130,8 +131,6 @@ public class MainActivity extends AppCompatActivity {
                 sendSMS(savedPhoneNumber1,savedSmsContent);
                 sendSMS(savedPhoneNumber2,savedSmsContent);
                 sendSMS(savedPhoneNumber3,savedSmsContent);
-                // just vibrate the device
-                vibrateDevice();
             }
         });
 
@@ -194,12 +193,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void askPermission(){
-        ActivityCompat.requestPermissions(MainActivity.this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_CODE);
+        ActivityCompat.requestPermissions(MainActivity.this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE){
+        // LOCATION PERMISSION
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE){
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 getLastLocation();
             }else {
@@ -216,7 +216,9 @@ public class MainActivity extends AppCompatActivity {
             getLastLocation();
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(phoneNumber, null, message, null, null);
-
+            // just vibrate the device
+            vibrateDevice();
+            //toast
             Toast toast = Toast.makeText(MainActivity.this,"SMS send successfully",Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
