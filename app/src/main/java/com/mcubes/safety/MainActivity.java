@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //askpermissions
+        askLocationPermission();
 
 
         if (!isMessageServiceRunning()) {
@@ -188,11 +190,11 @@ public class MainActivity extends AppCompatActivity {
                    });
         }
         else {
-            askPermission();
+            askLocationPermission();
         }
     }
 
-    private void askPermission(){
+    private void askLocationPermission(){
         ActivityCompat.requestPermissions(MainActivity.this,new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
     }
 
@@ -205,12 +207,10 @@ public class MainActivity extends AppCompatActivity {
             }else {
                 Toast.makeText(MainActivity.this,"Please provide the required permission",Toast.LENGTH_SHORT).show();
                 finish();
-
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-
     private void sendSMS(String phoneNumber, String message) {
         try {
             getLastLocation();
