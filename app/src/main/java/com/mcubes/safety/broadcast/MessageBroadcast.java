@@ -1,6 +1,7 @@
 package com.mcubes.safety.broadcast;
 
 import static android.content.Context.MODE_PRIVATE;
+import static android.content.Context.VIBRATOR_SERVICE;
 
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
@@ -12,12 +13,14 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
+import com.mcubes.safety.MainActivity;
 import com.mcubes.safety.PreferenceKeys;
 import com.mcubes.safety.R;
 
@@ -54,7 +57,7 @@ public class MessageBroadcast extends BroadcastReceiver {
                 String savedPhoneNumber2 = sharedPreferences.getString(PreferenceKeys.PHONE_NUMBER_KEY_2, "");
                 String savedPhoneNumber3 = sharedPreferences.getString(PreferenceKeys.PHONE_NUMBER_KEY_3, "");
                 String savedSmsContent = sharedPreferences.getString(PreferenceKeys.FULL_SMS_CONTENTS, "");
-
+                // sending sms
                 sendMessageToFriend(savedPhoneNumber1,savedSmsContent);
                 sendMessageToFriend(savedPhoneNumber2,savedSmsContent);
                 sendMessageToFriend(savedPhoneNumber3,savedSmsContent);
@@ -81,6 +84,8 @@ public class MessageBroadcast extends BroadcastReceiver {
             toast.show();
         }
     }
+
+
 
 
 }

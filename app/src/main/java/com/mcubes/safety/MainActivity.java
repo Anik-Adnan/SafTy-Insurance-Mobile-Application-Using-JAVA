@@ -18,6 +18,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.telephony.SmsManager;
 import android.view.Gravity;
 import android.view.View;
@@ -128,6 +130,8 @@ public class MainActivity extends AppCompatActivity {
                 sendSMS(savedPhoneNumber1,savedSmsContent);
                 sendSMS(savedPhoneNumber2,savedSmsContent);
                 sendSMS(savedPhoneNumber3,savedSmsContent);
+                // just vibrate the device
+                vibrateDevice();
             }
         });
 
@@ -236,6 +240,17 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return false;
+    }
+
+    @SuppressLint("NewApi")
+    private void vibrateDevice() {
+        // Get the Vibrator service
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+
+        if (vibrator != null) {
+            // Vibrate for 500 milliseconds
+            vibrator.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+        }
     }
 
 
