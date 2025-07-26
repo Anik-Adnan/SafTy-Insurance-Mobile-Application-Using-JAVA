@@ -22,9 +22,9 @@
 - **XML** – UI design
 - **Android Studio** – IDE for Android development
 
-## 📸 Screenshots
+## 📧 Email
 
-*(Add screenshots here if available)*
+anikadnanict17@gmail.com
 
 ## 📦 Installation
 
